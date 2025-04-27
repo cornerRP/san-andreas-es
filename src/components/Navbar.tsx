@@ -1,106 +1,98 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import { Menu, X } from 'lucide-react';
-import { Button } from './ui/button';
+import { Button } from '@/components/ui/button';
+import { Shield, Flame, Stethoscope, Menu, X } from 'lucide-react';
 
 const Navbar: React.FC = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
   const toggleMenu = () => {
-    setIsOpen(!isOpen);
+    setIsMenuOpen(!isMenuOpen);
   };
 
   return (
-    <nav className="bg-primary sticky top-0 z-50 shadow-md">
+    <header className="bg-background border-b border-border sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-16">
+        <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
-            <Link to="/" className="flex-shrink-0 flex items-center">
-              <img 
-                className="h-10 w-auto" 
-                src="/logo-b.svg" 
-                alt="SA Emergency Services" 
-              />
-              <span className="ml-2 text-white font-bold text-lg">SA Emergency</span>
+            <Link to="/" className="flex items-center">
+              <Shield className="h-8 w-8 text-primary mr-2" />
+              <span className="font-bold text-xl text-foreground">SA Emergency</span>
             </Link>
           </div>
           
-          <div className="hidden md:flex items-center space-x-1">
-            <Link to="/" className="text-white hover:bg-primary-foreground/10 px-3 py-2 rounded-md text-sm font-medium">
+          <nav className="hidden md:flex space-x-4">
+            <Link to="/" className="text-foreground hover:text-primary px-3 py-2 rounded-md text-sm font-medium">
               Главная
             </Link>
-            <Link to="/police" className="text-white hover:bg-primary-foreground/10 px-3 py-2 rounded-md text-sm font-medium">
-              Полиция
+            <Link to="/police" className="text-foreground hover:text-primary px-3 py-2 rounded-md text-sm font-medium flex items-center">
+              <Shield className="w-4 h-4 mr-1" /> Полиция
             </Link>
-            <Link to="/fire" className="text-white hover:bg-primary-foreground/10 px-3 py-2 rounded-md text-sm font-medium">
-              Пожарная служба
+            <Link to="/fire" className="text-foreground hover:text-primary px-3 py-2 rounded-md text-sm font-medium flex items-center">
+              <Flame className="w-4 h-4 mr-1" /> Пожарная
             </Link>
-            <Link to="/medic" className="text-white hover:bg-primary-foreground/10 px-3 py-2 rounded-md text-sm font-medium">
-              Медицинская служба
+            <Link to="/medic" className="text-foreground hover:text-primary px-3 py-2 rounded-md text-sm font-medium flex items-center">
+              <Stethoscope className="w-4 h-4 mr-1" /> Медики
             </Link>
-            <Link to="/join" className="text-white hover:bg-primary-foreground/10 px-3 py-2 rounded-md text-sm font-medium">
-              Как вступить
-            </Link>
-            <Button variant="secondary" size="sm" className="ml-2">
-              Подать заявку
+            <Button variant="default" size="sm">
+              Играть сейчас
             </Button>
-          </div>
+          </nav>
           
-          <div className="md:hidden flex items-center">
+          <div className="md:hidden">
             <button
               onClick={toggleMenu}
-              className="inline-flex items-center justify-center p-2 rounded-md text-white hover:bg-primary-foreground/10 focus:outline-none"
+              className="inline-flex items-center justify-center p-2 rounded-md text-foreground hover:text-primary focus:outline-none"
             >
-              {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              {isMenuOpen ? (
+                <X className="block h-6 w-6" />
+              ) : (
+                <Menu className="block h-6 w-6" />
+              )}
             </button>
           </div>
         </div>
       </div>
-
+      
       {/* Mobile menu */}
-      <div className={`md:hidden ${isOpen ? 'block' : 'hidden'}`}>
-        <div className="px-2 pt-2 pb-3 space-y-1">
-          <Link 
-            to="/" 
-            className="text-white hover:bg-primary-foreground/10 block px-3 py-2 rounded-md text-base font-medium"
-            onClick={() => setIsOpen(false)}
-          >
-            Главная
-          </Link>
-          <Link 
-            to="/police" 
-            className="text-white hover:bg-primary-foreground/10 block px-3 py-2 rounded-md text-base font-medium"
-            onClick={() => setIsOpen(false)}
-          >
-            Полиция
-          </Link>
-          <Link 
-            to="/fire" 
-            className="text-white hover:bg-primary-foreground/10 block px-3 py-2 rounded-md text-base font-medium"
-            onClick={() => setIsOpen(false)}
-          >
-            Пожарная служба
-          </Link>
-          <Link 
-            to="/medic" 
-            className="text-white hover:bg-primary-foreground/10 block px-3 py-2 rounded-md text-base font-medium"
-            onClick={() => setIsOpen(false)}
-          >
-            Медицинская служба
-          </Link>
-          <Link 
-            to="/join" 
-            className="text-white hover:bg-primary-foreground/10 block px-3 py-2 rounded-md text-base font-medium"
-            onClick={() => setIsOpen(false)}
-          >
-            Как вступить
-          </Link>
-          <Button variant="secondary" className="w-full mt-2">
-            Подать заявку
-          </Button>
+      {isMenuOpen && (
+        <div className="md:hidden bg-background border-b border-border">
+          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+            <Link 
+              to="/" 
+              className="text-foreground hover:text-primary block px-3 py-2 rounded-md text-base font-medium"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Главная
+            </Link>
+            <Link 
+              to="/police" 
+              className="text-foreground hover:text-primary block px-3 py-2 rounded-md text-base font-medium flex items-center"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              <Shield className="w-4 h-4 mr-2" /> Полиция
+            </Link>
+            <Link 
+              to="/fire" 
+              className="text-foreground hover:text-primary block px-3 py-2 rounded-md text-base font-medium flex items-center"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              <Flame className="w-4 h-4 mr-2" /> Пожарная
+            </Link>
+            <Link 
+              to="/medic" 
+              className="text-foreground hover:text-primary block px-3 py-2 rounded-md text-base font-medium flex items-center"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              <Stethoscope className="w-4 h-4 mr-2" /> Медики
+            </Link>
+            <Button className="w-full mt-2" size="sm">
+              Играть сейчас
+            </Button>
+          </div>
         </div>
-      </div>
-    </nav>
+      )}
+    </header>
   );
 };
 
