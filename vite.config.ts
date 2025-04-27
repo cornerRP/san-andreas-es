@@ -14,6 +14,7 @@ export default defineConfig({
       '@': resolve(__dirname, './src'),
     },
   },
+  base: './', // Указывает Vite использовать относительные пути
   server: {
     host: '0.0.0.0',
     port: 5173,
