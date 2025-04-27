@@ -31,7 +31,7 @@ const Index: React.FC = () => {
               <ServiceCard 
                 title="Полицейский департамент" 
                 description="Поддержание порядка и защита закона в Сан-Андреас. LSPD, SFPD и LVPD работают вместе для обеспечения безопасности граждан."
-                imageUrl="https://static.wikia.nocookie.net/gtawiki/images/3/32/LossSantosPoliceStation-GTASA-Pershing_Square.jpg/revision/latest?cb=20140309215906" 
+                imageUrl="https://static.wikia.nocookie.net/gtawiki/images/8/82/LSPDHQ-GTASA-exterior.jpg" 
                 color="primary"
                 link="/police"
               />
@@ -39,7 +39,7 @@ const Index: React.FC = () => {
               <ServiceCard 
                 title="Пожарная служба" 
                 description="Круглосуточная работа по предотвращению и тушению пожаров. Спасатели SAFD всегда готовы прийти на помощь в экстренных ситуациях."
-                imageUrl="https://static.wikia.nocookie.net/gtawiki/images/6/68/Fire_station_Doherty_GTASA.jpg/revision/latest?cb=20221126064207" 
+                imageUrl="https://static.wikia.nocookie.net/gtawiki/images/7/79/LSFD-GTASA-Headquaters.jpg" 
                 color="secondary"
                 link="/fire"
               />
@@ -47,7 +47,7 @@ const Index: React.FC = () => {
               <ServiceCard 
                 title="Медицинская служба" 
                 description="Оказание экстренной медицинской помощи и лечение граждан. Профессиональные врачи SAMD спасают жизни каждый день."
-                imageUrl="https://static.wikia.nocookie.net/gtawiki/images/1/1b/Ambulance-GTASA-front.jpg/revision/latest?cb=20091201153255" 
+                imageUrl="https://static.wikia.nocookie.net/gtawiki/images/c/c1/AllSaintsGeneralHospital-GTASA-exterior.jpg" 
                 color="accent"
                 link="/medic"
               />

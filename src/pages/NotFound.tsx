@@ -1,29 +1,26 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import Navbar from '@/components/Navbar';
-import Footer from '@/components/Footer';
+import { ShieldAlert } from 'lucide-react';
 
 const NotFound: React.FC = () => {
   return (
-    <div className="min-h-screen flex flex-col">
-      <Navbar />
-      
-      <main className="flex-grow flex items-center justify-center bg-background">
-        <div className="max-w-md mx-auto text-center px-4 py-10">
-          <h1 className="text-6xl font-bold text-primary mb-4">404</h1>
-          <h2 className="text-2xl font-semibold mb-2">Страница не найдена</h2>
-          <p className="text-muted-foreground mb-6">
-            Похоже, вы оказались в неизвестном районе Сан-Андреас.
-            Это место не отмечено на карте.
-          </p>
-          <Button asChild>
+    <div className="min-h-screen flex flex-col items-center justify-center bg-background px-4">
+      <div className="text-center max-w-md">
+        <ShieldAlert className="h-16 w-16 text-secondary mx-auto mb-6" />
+        <h1 className="text-4xl font-bold text-foreground mb-4">404 - Страница не найдена</h1>
+        <p className="text-lg text-muted-foreground mb-8">
+          Похоже, вы заблудились в Сан-Андреасе. Эта страница не существует или была перемещена.
+        </p>
+        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <Button asChild size="lg">
             <Link to="/">Вернуться на главную</Link>
           </Button>
+          <Button variant="outline" asChild size="lg">
+            <Link to="tel:911">Вызвать помощь</Link>
+          </Button>
         </div>
-      </main>
-      
-      <Footer />
+      </div>
     </div>
   );
 };

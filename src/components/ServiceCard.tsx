@@ -1,7 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { Card, CardContent, CardFooter } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
+import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 
 interface ServiceCardProps {
@@ -19,31 +19,41 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
   color,
   link
 }) => {
-  // Определение цветового класса для верхней полосы
-  const colorClass = {
-    primary: 'bg-primary',
-    secondary: 'bg-secondary',
-    accent: 'bg-accent'
-  }[color];
-  
+  // Определяем цвета для разных типов служб
+  const colorClasses = {
+    primary: 'border-primary hover:border-primary/80',
+    secondary: 'border-secondary hover:border-secondary/80',
+    accent: 'border-accent hover:border-accent/80'
+  };
+
+  const buttonVariant = {
+    primary: 'default',
+    secondary: 'secondary',
+    accent: 'outline'
+  };
+
   return (
-    <Card className="overflow-hidden border-none shadow-md hover:shadow-lg transition-all duration-300">
-      <div className={`h-2 ${colorClass}`} />
+    <Card className={`overflow-hidden transition-all hover:shadow-lg ${colorClasses[color]} border-2`}>
       <div className="h-48 overflow-hidden">
-        <img 
-          src={imageUrl} 
-          alt={title} 
-          className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+        <img
+          src={imageUrl}
+          alt={title}
+          className="w-full h-full object-cover transition-transform hover:scale-105 duration-500"
+          onError={(e) => {
+            // Fallback image if the URL doesn't load
+            (e.target as HTMLImageElement).src = "https://static.wikia.nocookie.net/gtawiki/images/3/33/Los_Santos_from_the_south.jpg";
+          }}
         />
       </div>
       <CardContent className="pt-6">
-        <h3 className="text-xl font-bold mb-2">{title}</h3>
+        <h3 className="text-xl font-semibold mb-2">{title}</h3>
         <p className="text-muted-foreground">{description}</p>
       </CardContent>
-      <CardFooter>
-        <Button variant="ghost" asChild className="p-0 hover:bg-transparent">
-          <Link to={link} className="flex items-center text-foreground hover:text-primary">
-            Подробнее <ArrowRight className="ml-2 h-4 w-4" />
+      <CardFooter className="pt-0">
+        <Button variant={buttonVariant[color]} asChild className="w-full mt-2 group">
+          <Link to={link} className="flex items-center justify-between">
+            <span>Подробнее</span>
+            <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
           </Link>
         </Button>
       </CardFooter>
