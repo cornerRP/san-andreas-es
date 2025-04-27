@@ -31,7 +31,7 @@ const Index: React.FC = () => {
               <ServiceCard 
                 title="Полицейский департамент" 
                 description="Поддержание порядка и защита закона в Сан-Андреас. LSPD, SFPD и LVPD работают вместе для обеспечения безопасности граждан."
-                imageUrl="https://images.unsplash.com/photo-1596720426673-e4e14290f0cc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
+                imageUrl="https://i.imgur.com/vd7LlaI.jpg" 
                 color="primary"
                 link="/police"
               />
@@ -39,7 +39,7 @@ const Index: React.FC = () => {
               <ServiceCard 
                 title="Пожарная служба" 
                 description="Круглосуточная работа по предотвращению и тушению пожаров. Спасатели SAFD всегда готовы прийти на помощь в экстренных ситуациях."
-                imageUrl="https://images.unsplash.com/photo-1591696331111-ef9586a5b17a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
+                imageUrl="https://i.imgur.com/cJx5LWN.jpg" 
                 color="secondary"
                 link="/fire"
               />
@@ -47,7 +47,7 @@ const Index: React.FC = () => {
               <ServiceCard 
                 title="Медицинская служба" 
                 description="Оказание экстренной медицинской помощи и лечение граждан. Профессиональные врачи SAMD спасают жизни каждый день."
-                imageUrl="https://images.unsplash.com/photo-1516574187841-cb9cc2ca948b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
+                imageUrl="https://i.imgur.com/ZgGPUCL.jpg" 
                 color="accent"
                 link="/medic"
               />
